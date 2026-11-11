@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PureNet – Erste Schritte · Primi passi · Getting started</title>
+<meta name="description" content="PureNet in 6 Schritten einrichten. Configurare PureNet in 6 passi. Set up PureNet in 6 steps.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0b'/%3E%3Cg transform='translate%284 26.5%29 scale%28.56%29'%3E%3Cpath fill='%23fff' d='M0 11.3C32.49 2.34 66.4-.21 100 .01L85.43 15.38 93.46 3.01C62.13 1.88 30.52 3.88 0 11.3Z'/%3E%3C/g%3E%3C/svg%3E">
+<!--
+  PureNet – Erste Schritte (Ziel des QR-Codes innen im Deckel).
+  Adresse: https://huberindustries.github.io/purenet/start/
+  Diese Adresse ist auf die Box gedruckt: Ordner und Repo-Namen nicht mehr ändern.
+  Texte bearbeiten: Jede Sprache steht unten in einem eigenen Block (id="l-de", "l-it", "l-en").
+  Kontakt-E-Mail: ganz unten im Script bei KONTAKT eintragen.
+  Keine externen Schriften, kein Tracking, keine Cookies.
+-->
+<script>
+(function(){var L=['de','it','en'],l='',h=location.hash.slice(1);if(L.indexOf(h)>-1)l=h;
+if(!l){try{var s=localStorage.getItem('pn-lang');if(L.indexOf(s)>-1)l=s}catch(e){}}
+if(!l){var n=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];
+for(var i=0;i<n.length&&!l;i++){var c=String(n[i]).slice(0,2).toLowerCase();if(L.indexOf(c)>-1)l=c}}
+l=l||'en';document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l})();
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--bg:#fff;--fg:#0b0b0b;--muted:#5d5d5d;--line:#e5e5e5;--soft:#f4f4f4;--dot:#0b0b0b;--dot-fg:#fff;--hero:#0b0b0b;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#101010;--fg:#f0f0f0;--muted:#a3a3a3;--line:#2b2b2b;--soft:#1a1a1a;--dot:#f0f0f0;--dot-fg:#0b0b0b;--hero:#000;color-scheme:dark}}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+a{color:inherit}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+.top{position:sticky;top:0;z-index:10;background:var(--hero);color:#fff;padding-top:env(safe-area-inset-top)}
+.bar{max-width:680px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar .logo{display:block;width:104px;height:38px;color:#fff}
+.lang{display:flex;gap:6px}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:36px;padding:0 10px;border-radius:18px;border:1px solid #3a3a3a;color:#fff;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.05em}
+.lang a[aria-current="true"]{background:#fff;border-color:#fff;color:#0b0b0b}
+.lang a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.hero{background:var(--hero);color:#fff;padding:6px 20px 34px}
+@media (prefers-color-scheme:dark){.hero{border-bottom:1px solid #1f1f1f}}
+.hero>*{max-width:640px;margin-left:auto;margin-right:auto}
+.hero h1{font-size:clamp(34px,10vw,46px);line-height:1.04;letter-spacing:-.03em;font-weight:800;margin-top:14px;margin-bottom:12px}
+.lead{margin-top:0;margin-bottom:0;color:#c9c9c9}
+.lid{margin-top:0;margin-bottom:0}
+.lid svg{display:block;width:100%;max-width:440px;height:auto;border-radius:8px;box-shadow:0 0 0 1px #2a2a2a,0 16px 36px rgba(0,0,0,.55)}
+.lid figcaption{max-width:440px;margin-top:14px;color:#c9c9c9;font-size:15.5px;line-height:1.5}
+.lid figcaption b{color:#fff}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+.wrap>ol.st{margin-top:34px}
+.st .lid{margin:2px 0 14px}
+.st .lid svg{max-width:420px;box-shadow:0 0 0 1px rgba(0,0,0,.1),0 10px 24px rgba(0,0,0,.22)}
+@media (prefers-color-scheme:dark){.st .lid svg{box-shadow:0 0 0 1px #3a3a3a,0 10px 24px rgba(0,0,0,.6)}}
+h2{font-size:23px;line-height:1.25;letter-spacing:-.015em;margin:38px 0 20px}
+h2 span{font-weight:500;color:var(--muted)}
+.st{list-style:none;margin:0;padding:0;counter-reset:s}
+.st>li{position:relative;padding:0 0 28px 54px;counter-increment:s}
+.st>li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--dot);color:var(--dot-fg);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;line-height:1}
+.st>li::after{content:"";position:absolute;left:17px;top:44px;bottom:8px;width:2px;border-radius:1px;background:var(--line)}
+.st>li:last-child{padding-bottom:8px}
+.st>li:last-child::after{display:none}
+.st h3{font-size:19px;line-height:1.3;letter-spacing:-.01em;margin:5px 0 6px}
+.st p{margin:0 0 10px}
+.note{font-size:15px;line-height:1.5;color:var(--muted);padding-left:12px;border-left:2px solid var(--line)}
+.path{font-weight:600}
+.path i{font-style:normal;color:var(--muted);padding:0 1px}
+.chip{display:inline-block;padding:0 8px;border-radius:7px;background:var(--soft);border:1px solid var(--line);color:var(--fg);font-weight:700;text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mock{max-width:290px;margin:4px 0 14px;border-radius:14px;background:var(--soft);border:1px solid var(--line);font-size:15px;overflow:hidden}
+.wl .mh{padding:9px 14px 7px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.wl .row{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--line);color:var(--muted)}
+.wl .row span{flex:1}
+.wl .row svg{flex:none;width:17px;height:17px}
+.wl .row.on{background:var(--bg);color:var(--fg);font-weight:700}
+.okm{padding:16px 16px 14px;text-align:center}
+.okm .c{width:34px;height:34px;margin:0 auto 6px;border-radius:50%;background:var(--dot);color:var(--dot-fg);display:flex;align-items:center;justify-content:center}
+.okm .t{margin-bottom:10px;font-size:18px;font-weight:800}
+.okm .a{padding:8px 10px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
+.okm .a small{display:block;font-size:12px;color:var(--muted)}
+.okm .a b{font-size:19px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.done{display:flex;gap:14px;align-items:flex-start;margin:8px 0 0;padding:16px 18px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}
+.done svg{flex:none;width:28px;height:28px;margin-top:1px}
+.done p{margin:0}
+.help details{border-top:1px solid var(--line)}
+.help details:last-of-type{border-bottom:1px solid var(--line)}
+.help summary{position:relative;list-style:none;cursor:pointer;padding:15px 34px 15px 0;font-weight:700;line-height:1.35}
+.help summary::-webkit-details-marker{display:none}
+.help summary::after{content:"";position:absolute;right:6px;top:50%;width:9px;height:9px;margin-top:-7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s}
+.help details[open] summary::after{margin-top:-2px;transform:rotate(-135deg)}
+.help details p{margin:0 0 18px}
+.ft{margin-top:44px;padding:0 0 calc(34px + env(safe-area-inset-bottom));color:var(--muted);font-size:14px;line-height:1.5}
+.nw{white-space:nowrap}
+.ft .logo{display:block;width:84px;height:31px;margin-bottom:12px;color:var(--fg)}
+.ft p{margin:0 0 6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+html[data-lang] .lb{display:none}
+html[data-lang="de"] #l-de,html[data-lang="it"] #l-it,html[data-lang="en"] #l-en{display:block}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true" focusable="false"><defs>
+<symbol id="logo" viewBox="50 10 304 111"><g transform="translate(70 12) scale(2.6)"><path fill="currentColor" d="M0 11.3C32.49 2.34 66.4-.21 100 .01L85.43 15.38 93.46 3.01C62.13 1.88 30.52 3.88 0 11.3Z"/></g><path fill="currentColor" d="M82.8 64.3Q92.2 64.3 97.4 68.6Q102.6 72.9 102.6 80.4Q102.6 89 96.7 94Q90.9 99.1 81.1 99.1H66.8L63 118H51.8L62.2 64.3ZM68.4 90.5H79.4Q85.3 90.5 88.3 88.3Q91.2 86 91.2 81Q91.2 77.1 88.8 75.1Q86.3 73.1 81.8 73.1H71.8Z M122 76.8 117.5 99.5Q116.5 104.1 116.5 105.7Q116.5 110.6 122.3 110.6Q126.1 110.6 129.4 107.6Q132.6 104.5 133.5 99.9L138 76.8H148.8L142.4 109.2Q141.8 112.2 141 118H130.8Q130.8 117.7 131.1 114.8Q131.5 111.9 131.7 111H131.6Q128.7 115 125.2 116.9Q121.8 118.7 117.4 118.7Q111.6 118.7 108.7 115.9Q105.7 113.2 105.7 107.9Q105.7 107 106 104.8Q106.3 102.7 106.5 101.7L111.4 76.8Z M182.3 85.5Q179.6 84.9 177.9 84.9Q173.2 84.9 170.3 88.3Q167.3 91.6 166 98.4L162.2 118H151.5L157.6 86.4Q158.5 81.8 159.2 76.8H169.4L168.6 83.3L168.3 85.2H168.4Q171.2 80.1 173.9 78.1Q176.6 76 180.1 76Q181.9 76 184 76.6Z M194.1 99.9Q193.8 101.3 193.8 103.3Q193.8 107.3 195.6 109.4Q197.4 111.6 200.9 111.6Q206.5 111.6 209 105.2L218.3 108Q215.4 114 211.2 116.4Q207 118.8 200.1 118.8Q192 118.8 187.5 114.4Q182.9 110 182.9 102.1Q182.9 94.2 185.6 88.3Q188.4 82.4 193.4 79.2Q198.5 76 205.1 76Q213 76 217.4 80.1Q221.7 84.2 221.7 91.7Q221.7 95.5 220.8 99.9ZM211.8 92.7 211.9 90.6Q211.9 86.5 210 84.7Q208.1 82.8 205.1 82.8Q201.4 82.8 198.9 85.3Q196.4 87.9 195.4 92.7Z M257.5 118 243.3 74.9Q242.4 81.1 241.8 84L235.2 118H225.2L235.7 64.3H249L263.4 107.8L263.8 104.7Q264.2 101.5 264.9 98L271.5 64.3H281.5L271.1 118Z M293.8 99.9Q293.6 101.3 293.6 103.3Q293.6 107.3 295.3 109.4Q297.1 111.6 300.6 111.6Q306.2 111.6 308.7 105.2L318 108Q315.2 114 310.9 116.4Q306.7 118.8 299.8 118.8Q291.7 118.8 287.2 114.4Q282.6 110 282.6 102.1Q282.6 94.2 285.3 88.3Q288.1 82.4 293.1 79.2Q298.2 76 304.8 76Q312.8 76 317.1 80.1Q321.4 84.2 321.4 91.7Q321.4 95.5 320.5 99.9ZM311.5 92.7 311.6 90.6Q311.6 86.5 309.7 84.7Q307.8 82.8 304.8 82.8Q301.1 82.8 298.6 85.3Q296.1 87.9 295.1 92.7Z M337.9 118.6Q333.2 118.6 330.6 116.4Q328 114.2 328 110Q328 107.3 328.6 104.1L332.5 84H326.8L328.3 76.8H334.4L339.6 67.1H346.3L344.5 76.8H352.2L350.9 84H343.1L339.1 104.4Q338.7 106.5 338.7 107.8Q338.7 109.5 339.6 110.4Q340.5 111.3 342 111.3Q343.2 111.3 346.1 110.8L344.9 117.7Q341.8 118.6 337.9 118.6Z"/></symbol>
+<symbol id="wf" viewBox="0 0 24 24"><path d="M2.6 9.3a13.6 13.6 0 0 1 18.8 0M5.7 12.7a9.2 9.2 0 0 1 12.6 0M8.8 16.1a4.8 4.8 0 0 1 6.4 0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="19.3" r="1.6" fill="currentColor"/></symbol>
+<symbol id="lk" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="currentColor"/><path d="M8.2 10.5V8a3.8 3.8 0 0 1 7.6 0v2.5" fill="none" stroke="currentColor" stroke-width="2.1"/></symbol>
+<symbol id="lid" viewBox="0 0 98 57">
+<rect width="98" height="57" fill="#141414"/>
+<use href="#logo" style="color:#fff" x="4" y="5" width="26" height="9.49"/>
+<g fill="#fff" font-family="Arial,Helvetica,sans-serif">
+<text x="4" y="23.4" font-size="2.4">Wi-Fi</text><text x="26" y="23.6" font-size="3.4" font-weight="700">PureNet-Setup</text>
+<text x="4" y="33.35" font-size="2.4">Password</text>
+<text x="4" y="48.6" font-size="2.7" font-weight="700">Any problems? Scan the QR code.</text>
+<text x="4" y="52.4" font-size="2.1">huberindustries.github.io/purenet/start</text>
+<g font-size="2.4" font-weight="700"><text x="71" y="31.6">Erste Schritte</text><text x="71" y="34.35">Primi passi</text><text x="71" y="37.1">Getting started</text></g>
+</g>
+<rect x="71" y="5" width="23" height="23" rx="1" fill="#fff"/>
+<path fill="#141414" transform="translate(73 7) scale(0.46341)" d="M2 2h7v1h-7zM15 2h3v1h-3zM21 2h3v1h-3zM28 2h1v1h-1zM30 2h1v1h-1zM32 2h7v1h-7zM2 3h1v1h-1zM8 3h1v1h-1zM10 3h2v1h-2zM13 3h1v1h-1zM15 3h2v1h-2zM21 3h2v1h-2zM24 3h1v1h-1zM27 3h2v1h-2zM30 3h1v1h-1zM32 3h1v1h-1zM38 3h1v1h-1zM2 4h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM10 4h3v1h-3zM15 4h1v1h-1zM17 4h1v1h-1zM21 4h2v1h-2zM25 4h3v1h-3zM32 4h1v1h-1zM34 4h3v1h-3zM38 4h1v1h-1zM2 5h1v1h-1zM4 5h3v1h-3zM8 5h1v1h-1zM12 5h1v1h-1zM16 5h2v1h-2zM24 5h6v1h-6zM32 5h1v1h-1zM34 5h3v1h-3zM38 5h1v1h-1zM2 6h1v1h-1zM4 6h3v1h-3zM8 6h1v1h-1zM11 6h1v1h-1zM13 6h1v1h-1zM16 6h1v1h-1zM19 6h1v1h-1zM21 6h1v1h-1zM24 6h1v1h-1zM27 6h3v1h-3zM32 6h1v1h-1zM34 6h3v1h-3zM38 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM12 7h5v1h-5zM18 7h1v1h-1zM22 7h1v1h-1zM28 7h1v1h-1zM32 7h1v1h-1zM38 7h1v1h-1zM2 8h7v1h-7zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM30 8h1v1h-1zM32 8h7v1h-7zM12 9h1v1h-1zM14 9h2v1h-2zM20 9h3v1h-3zM25 9h6v1h-6zM3 10h3v1h-3zM7 10h2v1h-2zM11 10h1v1h-1zM13 10h5v1h-5zM19 10h5v1h-5zM26 10h4v1h-4zM36 10h2v1h-2zM3 11h2v1h-2zM6 11h2v1h-2zM9 11h2v1h-2zM12 11h1v1h-1zM14 11h3v1h-3zM19 11h2v1h-2zM25 11h1v1h-1zM27 11h1v1h-1zM29 11h1v1h-1zM32 11h4v1h-4zM2 12h1v1h-1zM5 12h1v1h-1zM7 12h2v1h-2zM10 12h1v1h-1zM13 12h2v1h-2zM16 12h2v1h-2zM21 12h7v1h-7zM30 12h2v1h-2zM36 12h2v1h-2zM2 13h2v1h-2zM5 13h1v1h-1zM7 13h1v1h-1zM9 13h2v1h-2zM14 13h3v1h-3zM18 13h1v1h-1zM21 13h1v1h-1zM27 13h2v1h-2zM30 13h1v1h-1zM34 13h3v1h-3zM38 13h1v1h-1zM3 14h4v1h-4zM8 14h1v1h-1zM10 14h1v1h-1zM12 14h4v1h-4zM18 14h1v1h-1zM20 14h3v1h-3zM24 14h9v1h-9zM34 14h1v1h-1zM36 14h1v1h-1zM38 14h1v1h-1zM3 15h1v1h-1zM5 15h2v1h-2zM9 15h1v1h-1zM12 15h2v1h-2zM16 15h2v1h-2zM22 15h1v1h-1zM24 15h1v1h-1zM26 15h1v1h-1zM28 15h3v1h-3zM32 15h1v1h-1zM34 15h1v1h-1zM36 15h3v1h-3zM2 16h1v1h-1zM4 16h1v1h-1zM6 16h6v1h-6zM13 16h2v1h-2zM16 16h1v1h-1zM22 16h1v1h-1zM24 16h1v1h-1zM31 16h1v1h-1zM34 16h1v1h-1zM36 16h2v1h-2zM3 17h1v1h-1zM5 17h3v1h-3zM14 17h3v1h-3zM19 17h3v1h-3zM23 17h4v1h-4zM28 17h3v1h-3zM32 17h3v1h-3zM2 18h2v1h-2zM5 18h1v1h-1zM8 18h1v1h-1zM11 18h3v1h-3zM15 18h1v1h-1zM17 18h2v1h-2zM20 18h2v1h-2zM25 18h4v1h-4zM33 18h1v1h-1zM35 18h2v1h-2zM38 18h1v1h-1zM2 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM12 19h1v1h-1zM15 19h2v1h-2zM20 19h1v1h-1zM22 19h1v1h-1zM27 19h1v1h-1zM29 19h1v1h-1zM31 19h2v1h-2zM35 19h2v1h-2zM38 19h1v1h-1zM2 20h1v1h-1zM4 20h2v1h-2zM8 20h1v1h-1zM10 20h2v1h-2zM13 20h3v1h-3zM17 20h1v1h-1zM19 20h1v1h-1zM28 20h4v1h-4zM33 20h3v1h-3zM37 20h2v1h-2zM2 21h5v1h-5zM10 21h2v1h-2zM14 21h1v1h-1zM16 21h1v1h-1zM21 21h1v1h-1zM25 21h1v1h-1zM32 21h1v1h-1zM34 21h2v1h-2zM37 21h1v1h-1zM3 22h1v1h-1zM6 22h4v1h-4zM12 22h3v1h-3zM17 22h2v1h-2zM20 22h1v1h-1zM22 22h2v1h-2zM26 22h1v1h-1zM28 22h4v1h-4zM34 22h2v1h-2zM3 23h5v1h-5zM10 23h5v1h-5zM19 23h1v1h-1zM25 23h1v1h-1zM31 23h1v1h-1zM33 23h1v1h-1zM36 23h2v1h-2zM2 24h5v1h-5zM8 24h1v1h-1zM11 24h1v1h-1zM16 24h2v1h-2zM21 24h2v1h-2zM25 24h2v1h-2zM28 24h1v1h-1zM31 24h1v1h-1zM34 24h1v1h-1zM36 24h1v1h-1zM2 25h1v1h-1zM7 25h1v1h-1zM9 25h1v1h-1zM11 25h2v1h-2zM20 25h2v1h-2zM24 25h1v1h-1zM26 25h6v1h-6zM35 25h3v1h-3zM2 26h1v1h-1zM5 26h4v1h-4zM12 26h5v1h-5zM19 26h2v1h-2zM24 26h1v1h-1zM26 26h1v1h-1zM32 26h1v1h-1zM35 26h2v1h-2zM38 26h1v1h-1zM4 27h4v1h-4zM9 27h1v1h-1zM12 27h1v1h-1zM14 27h2v1h-2zM19 27h1v1h-1zM24 27h1v1h-1zM26 27h2v1h-2zM30 27h1v1h-1zM34 27h2v1h-2zM37 27h2v1h-2zM3 28h1v1h-1zM5 28h2v1h-2zM8 28h1v1h-1zM10 28h1v1h-1zM13 28h1v1h-1zM16 28h1v1h-1zM18 28h1v1h-1zM21 28h4v1h-4zM26 28h2v1h-2zM29 28h2v1h-2zM34 28h1v1h-1zM36 28h2v1h-2zM2 29h1v1h-1zM4 29h1v1h-1zM6 29h1v1h-1zM10 29h1v1h-1zM13 29h2v1h-2zM18 29h4v1h-4zM23 29h3v1h-3zM30 29h2v1h-2zM33 29h3v1h-3zM37 29h2v1h-2zM2 30h2v1h-2zM5 30h2v1h-2zM8 30h1v1h-1zM10 30h2v1h-2zM15 30h2v1h-2zM20 30h1v1h-1zM23 30h3v1h-3zM27 30h1v1h-1zM29 30h6v1h-6zM36 30h1v1h-1zM10 31h1v1h-1zM12 31h2v1h-2zM15 31h1v1h-1zM22 31h2v1h-2zM25 31h2v1h-2zM28 31h3v1h-3zM34 31h3v1h-3zM38 31h1v1h-1zM2 32h7v1h-7zM12 32h1v1h-1zM15 32h1v1h-1zM17 32h3v1h-3zM21 32h1v1h-1zM24 32h1v1h-1zM27 32h2v1h-2zM30 32h1v1h-1zM32 32h1v1h-1zM34 32h2v1h-2zM37 32h2v1h-2zM2 33h1v1h-1zM8 33h1v1h-1zM10 33h2v1h-2zM15 33h2v1h-2zM21 33h1v1h-1zM23 33h1v1h-1zM25 33h2v1h-2zM28 33h3v1h-3zM34 33h2v1h-2zM2 34h1v1h-1zM4 34h3v1h-3zM8 34h1v1h-1zM15 34h1v1h-1zM17 34h1v1h-1zM20 34h3v1h-3zM28 34h1v1h-1zM30 34h6v1h-6zM38 34h1v1h-1zM2 35h1v1h-1zM4 35h3v1h-3zM8 35h1v1h-1zM10 35h4v1h-4zM15 35h1v1h-1zM18 35h3v1h-3zM23 35h1v1h-1zM27 35h1v1h-1zM29 35h1v1h-1zM32 35h1v1h-1zM34 35h1v1h-1zM37 35h1v1h-1zM2 36h1v1h-1zM4 36h3v1h-3zM8 36h1v1h-1zM10 36h1v1h-1zM12 36h2v1h-2zM18 36h2v1h-2zM24 36h1v1h-1zM27 36h1v1h-1zM32 36h4v1h-4zM37 36h1v1h-1zM2 37h1v1h-1zM8 37h1v1h-1zM10 37h2v1h-2zM15 37h4v1h-4zM20 37h2v1h-2zM24 37h4v1h-4zM35 37h2v1h-2zM2 38h7v1h-7zM12 38h3v1h-3zM16 38h1v1h-1zM18 38h2v1h-2zM24 38h5v1h-5zM34 38h1v1h-1zM36 38h3v1h-3z"/>
+<rect x="27" y="27.5" width="30" height="10" rx="1.2" fill="#fff"/>
+<g fill="#141414"><circle cx="30.33" cy="32.5" r=".95"/><circle cx="33.67" cy="32.5" r=".95"/><circle cx="37.00" cy="32.5" r=".95"/><circle cx="40.33" cy="32.5" r=".95"/><circle cx="43.67" cy="32.5" r=".95"/><circle cx="47.00" cy="32.5" r=".95"/><circle cx="50.33" cy="32.5" r=".95"/><circle cx="53.67" cy="32.5" r=".95"/></g>
+<rect x="25.3" y="26.3" width="33.4" height="12.4" rx="2.2" fill="none" stroke="#fff" stroke-width=".45" stroke-dasharray="1.5 1.1"/>
+</symbol>
+</defs></svg>
+
+<header class="top">
+  <div class="bar">
+    <svg class="logo" viewBox="0 0 304 111" role="img" aria-label="PureNet"><use href="#logo" width="304" height="111"/></svg>
+    <nav class="lang" aria-label="Sprache · Lingua · Language">
+      <a href="#de" data-l="de" lang="de" hreflang="de">DE</a>
+      <a href="#it" data-l="it" lang="it" hreflang="it">IT</a>
+      <a href="#en" data-l="en" lang="en" hreflang="en">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================= DEUTSCH ======================= -->
+<article class="lb" id="l-de" lang="de">
+  <section class="hero">
+    <h1>Erste Schritte</h1>
+    <p class="lead">Zwei Schritte, dann führt dich die PureNet-Seite durch den Rest.</p>
+  </section>
+  <div class="wrap">
+    <ol class="st">
+      <li>
+        <h3>Stick einstecken</h3>
+        <p>In ein USB-Netzteil, zum Beispiel ein Handy-Ladegerät, oder in den USB-Anschluss deines Routers. Drin lassen und <b>1 Minute warten</b>.</p>
+        <p class="note">Am besten in der Nähe deines Routers.</p>
+      </li>
+      <li>
+        <h3>Mit „<span class="nw">PureNet-Setup</span>“ verbinden</h3>
+        <p>Am Handy: <span class="path">Einstellungen <i>→</i> WLAN <i>→</i> <span class="nw">PureNet-Setup</span></span>.</p>
+        <div class="mock wl" aria-hidden="true"><div class="mh">WLAN</div><div class="row"><span>Mein-WLAN</span><svg><use href="#lk"/></svg><svg><use href="#wf"/></svg></div><div class="row on"><span><span class="nw">PureNet-Setup</span></span><svg><use href="#lk"/></svg><svg><use href="#wf"/></svg></div></div>
+        <p>Das Passwort klebt innen im Deckel, neben „Password“:</p>
+        <figure class="lid"><svg viewBox="0 0 98 57" role="img" aria-label="Innenseite des Deckels. Das Passwort-Etikett klebt neben dem Wort Password."><use href="#lid"/></svg></figure>
+        <p>Dann öffnet sich die <b>PureNet-Seite</b> von selbst und zeigt dir alles Weitere. Falls nicht: im Browser <a class="chip" href="http://192.168.4.1/">192.168.4.1</a> öffnen.</p>
+        <p class="note">Meldet das Handy „Kein Internet“? Das ist normal. Verbunden bleiben.</p>
+      </li>
+    </ol>
+    <section class="help">
+      <h2>Hilfe</h2>
+      <details><summary>Das Handy meldet „Kein Internet“</summary><p>Während der Einrichtung ist das normal, denn das WLAN <span class="nw">PureNet-Setup</span> hat kein Internet. Bleib verbunden, bis die PureNet-Seite fertig ist.</p></details>
+      <details><summary>Die PureNet-Seite öffnet sich nicht</summary><p>Bleib mit <span class="nw">PureNet-Setup</span> verbunden und öffne im Browser 192.168.4.1. Bei Android kommt oft eine Mitteilung zum Anmelden: antippen.</p></details>
+      <details><summary>„<span class="nw">PureNet-Setup</span>“ erscheint nicht</summary><p>Nach dem Einstecken 1 Minute warten. Hilft das nicht, den Stick aus- und wieder einstecken. Ist er schon eingerichtet, bleibt das Setup-WLAN aus: Öffne dann purenet.local.</p></details>
+      <details><summary>Mein WLAN fehlt in der Liste</summary><p>Der Stick kann nur <b>2,4-GHz-WLAN</b>. Hat dein Router ein eigenes 5-GHz-WLAN, wähle das andere. Geh näher an den Router und tippe auf „Neu suchen“. Bei einem versteckten WLAN: „WLAN nicht in der Liste?“ antippen.</p></details>
+      <details><summary>purenet.local öffnet sich nicht</summary><p>Manche Android-Handys kennen .local-Adressen nicht. Gib dann die Adresse ein, die dir die PureNet-Seite nach dem Verbinden gezeigt hat, zum Beispiel 192.168.1.23. Nicht mehr zur Hand? Öffne purenet.local an einem iPhone, iPad, Mac oder Windows-PC, dort steht sie.</p></details>
+      <details><summary>Plötzlich kein Internet mehr</summary><p>Ist der Stick eingesteckt und hat Strom? Nach dem Einstecken braucht er etwa 1 Minute. Hat er eine neue Adresse bekommen, zeigt purenet.local sie an: Trag sie auf deinen Geräten ein. Brauchst du sofort Internet, stell den DNS am Gerät wieder auf „Automatisch“. Dann geht alles wieder, nur ohne Filter.</p></details>
+      <details><summary>Neues WLAN oder neuer Router</summary><p>Steck den Stick aus und wieder ein. Findet er sein WLAN 5 Minuten lang nicht, öffnet er <span class="nw">PureNet-Setup</span> von selbst. Dann geht es oben ab Schritt 2 weiter. Läuft das alte WLAN noch, geht es schneller: purenet.local öffnen und auf „WLAN ändern“ tippen. Danach hat der Stick oft eine neue Adresse: Trag sie auf deinen Geräten ein.</p></details>
+      <details><summary>Passwort verloren?</summary><p>Das Passwort gehört fest zu deinem Stick und klebt innen im Deckel. Du findest es auch auf purenet.local, solange der Stick mit deinem WLAN verbunden ist.</p></details>
+    </section>
+    <footer class="ft">
+      <svg class="logo" viewBox="0 0 304 111" aria-hidden="true"><use href="#logo" width="304" height="111"/></svg>
+      <p>Filterlisten: <a href="https://github.com/hagezi/dns-blocklists" rel="noopener">HaGeZi DNS Blocklists</a>, Lizenz GPL-3.0</p>
+      <p data-contact hidden>Fragen? Schreib uns: <a href="#"></a></p>
+    </footer>
+  </div>
+</article>
+
+<!-- ======================= ITALIANO ======================= -->
+<article class="lb" id="l-it" lang="it">
+  <section class="hero">
+    <h1>Primi passi</h1>
+    <p class="lead">Due passi, poi la pagina PureNet ti guida nel resto.</p>
+  </section>
+  <div class="wrap">
+    <ol class="st">
+      <li>
+        <h3>Inserisci la chiavetta</h3>
+        <p>In un alimentatore USB, ad esempio il caricatore del telefono, oppure nella porta USB del tuo router. Lasciala inserita e <b>attendi 1 minuto</b>.</p>
+        <p class="note">Meglio se vicino al router.</p>
+      </li>
+      <li>
+        <h3>Connettiti a «<span class="nw">PureNet-Setup</span>»</h3>
+        <p>Sul telefono: <span class="path">Impostazioni <i>→</i> <span class="nw">Wi-Fi</span> <i>→</i> <span class="nw">PureNet-Setup</span></span>.</p>
+        <div class="mock wl" aria-hidden="true"><div class="mh"><span class="nw">Wi-Fi</span></div><div class="row"><span>WiFi-Casa</span><svg><use href="#lk"/></svg><svg><use href="#wf"/></svg></div><div class="row on"><span><span class="nw">PureNet-Setup</span></span><svg><use href="#lk"/></svg><svg><use href="#wf"/></svg></div></div>
+        <p>La password è sull’etichetta all’interno del coperchio, accanto a «Password»:</p>
+        <figure class="lid"><svg viewBox="0 0 98 57" role="img" aria-label="Interno del coperchio. L’etichetta con la password è accanto alla parola Password."><use href="#lid"/></svg></figure>
+        <p>Poi si apre da sola la <b>pagina PureNet</b> e ti mostra tutto il resto. Se non succede: apri <a class="chip" href="http://192.168.4.1/">192.168.4.1</a> nel browser.</p>
+        <p class="note">Il telefono segnala «Nessuna connessione a Internet»? È normale. Resta connesso.</p>
+      </li>
+    </ol>
+    <section class="help">
+      <h2>Aiuto</h2>
+      <details><summary>Il telefono dice «Nessuna connessione a Internet»</summary><p>Durante la configurazione è normale, perché la rete <span class="nw">PureNet-Setup</span> non ha Internet. Resta connesso finché la pagina PureNet non ha finito.</p></details>
+      <details><summary>La pagina PureNet non si apre</summary><p>Resta connesso a <span class="nw">PureNet-Setup</span> e apri 192.168.4.1 nel browser. Su Android spesso compare una notifica per accedere alla rete: toccala.</p></details>
+      <details><summary>«<span class="nw">PureNet-Setup</span>» non compare</summary><p>Dopo averla inserita, attendi 1 minuto. Se non basta, scollega la chiavetta e reinseriscila. Se è già configurata, la rete di configurazione resta spenta: apri allora purenet.local.</p></details>
+      <details><summary>La mia rete <span class="nw">Wi-Fi</span> non è nell’elenco</summary><p>La chiavetta funziona solo con il <b><span class="nw">Wi-Fi</span> a 2,4 GHz</b>. Se il router ha una rete separata a 5 GHz, scegli l’altra. Avvicinati al router e tocca «Cerca di nuovo». Per una rete nascosta tocca «La rete non è nell’elenco?».</p></details>
+      <details><summary>purenet.local non si apre</summary><p>Alcuni telefoni Android non riconoscono gli indirizzi .local. Inserisci allora l’indirizzo che la pagina PureNet ti ha mostrato dopo la connessione, ad esempio 192.168.1.23. Non ce l’hai più? Apri purenet.local su un iPhone, iPad, Mac o PC Windows: lì lo trovi.</p></details>
+      <details><summary>All’improvviso niente Internet</summary><p>La chiavetta è inserita e alimentata? Dopo l’inserimento le serve circa 1 minuto. Se ha ricevuto un nuovo indirizzo, lo trovi su purenet.local: inseriscilo sui tuoi dispositivi. Se ti serve Internet subito, reimposta il DNS del dispositivo su «Automatico». Tutto torna a funzionare, solo senza filtro.</p></details>
+      <details><summary>Nuovo <span class="nw">Wi-Fi</span> o nuovo router</summary><p>Scollega la chiavetta e reinseriscila. Se per 5 minuti non trova il suo <span class="nw">Wi-Fi</span>, apre <span class="nw">PureNet-Setup</span> da sola: poi continua qui sopra dal passo 2. Se il vecchio <span class="nw">Wi-Fi</span> funziona ancora, fai prima: apri purenet.local e tocca «Cambia <span class="nw">Wi-Fi</span>». Dopo, la chiavetta ha spesso un nuovo indirizzo: inseriscilo sui tuoi dispositivi.</p></details>
+      <details><summary>Password persa?</summary><p>La password appartiene alla tua chiavetta ed è sull’etichetta all’interno del coperchio. La trovi anche su purenet.local, finché la chiavetta è collegata al tuo <span class="nw">Wi-Fi</span>.</p></details>
+    </section>
+    <footer class="ft">
+      <svg class="logo" viewBox="0 0 304 111" aria-hidden="true"><use href="#logo" width="304" height="111"/></svg>
+      <p>Liste di filtri: <a href="https://github.com/hagezi/dns-blocklists" rel="noopener">HaGeZi DNS Blocklists</a>, licenza GPL-3.0</p>
+      <p data-contact hidden>Domande? Scrivici: <a href="#"></a></p>
+    </footer>
+  </div>
+</article>
+
+<!-- ======================= ENGLISH ======================= -->
+<article class="lb" id="l-en" lang="en">
+  <section class="hero">
+    <h1>Getting started</h1>
+    <p class="lead">Two steps, then the PureNet page guides you through the rest.</p>
+  </section>
+  <div class="wrap">
+    <ol class="st">
+      <li>
+        <h3>Plug in the stick</h3>
+        <p>Into a USB power adapter, such as a phone charger, or into the USB port of your router. Leave it plugged in and <b>wait 1 minute</b>.</p>
+        <p class="note">Ideally close to your router.</p>
+      </li>
+      <li>
+        <h3>Join “<span class="nw">PureNet-Setup</span>”</h3>
+        <p>On your phone: <span class="path">Settings <i>→</i> <span class="nw">Wi-Fi</span> <i>→</i> <span class="nw">PureNet-Setup</span></span>.</p>
+        <div class="mock wl" aria-hidden="true"><div class="mh"><span class="nw">Wi-Fi</span></div><div class="row"><span>Home-WiFi</span><svg><use href="#lk"/></svg><svg><use href="#wf"/></svg></div><div class="row on"><span><span class="nw">PureNet-Setup</span></span><svg><use href="#lk"/></svg><svg><use href="#wf"/></svg></div></div>
+        <p>The password is on the label inside the lid, next to “Password”:</p>
+        <figure class="lid"><svg viewBox="0 0 98 57" role="img" aria-label="Inside of the lid. The password label is next to the word Password."><use href="#lid"/></svg></figure>
+        <p>Then the <b>PureNet page</b> opens by itself and shows you everything else. If it doesn’t: open <a class="chip" href="http://192.168.4.1/">192.168.4.1</a> in your browser.</p>
+        <p class="note">Your phone says “No internet connection”? That’s normal. Stay connected.</p>
+      </li>
+    </ol>
+    <section class="help">
+      <h2>Help</h2>
+      <details><summary>My phone says “No internet connection”</summary><p>That’s normal during setup, because the <span class="nw">PureNet-Setup</span> network has no internet. Stay connected until the PureNet page is done.</p></details>
+      <details><summary>The PureNet page doesn’t open</summary><p>Stay connected to <span class="nw">PureNet-Setup</span> and open 192.168.4.1 in your browser. On Android, a notification to sign in to the network often appears: tap it.</p></details>
+      <details><summary>“<span class="nw">PureNet-Setup</span>” doesn’t appear</summary><p>Wait 1 minute after plugging in. If that doesn’t help, unplug the stick and plug it back in. If it’s already set up, the setup <span class="nw">Wi-Fi</span> stays off: open purenet.local instead.</p></details>
+      <details><summary>My <span class="nw">Wi-Fi</span> isn’t in the list</summary><p>The stick only works with <b>2.4 GHz <span class="nw">Wi-Fi</span></b>. If your router has a separate 5 GHz network, choose the other one. Move closer to the router and tap “Search again”. For a hidden network, tap “Network not in the list?”.</p></details>
+      <details><summary>purenet.local won’t open</summary><p>Some Android phones don’t support .local addresses. Type the address the PureNet page showed you after connecting, for example 192.168.1.23. Don’t have it any more? Open purenet.local on an iPhone, iPad, Mac or Windows PC; the page shows it.</p></details>
+      <details><summary>Suddenly no internet</summary><p>Is the stick plugged in and powered? After plugging in, it needs about 1 minute. If it got a new address, purenet.local shows it: enter it on your devices. If you need internet right away, set DNS on your device back to “Automatic”. Everything works again, just without the filter.</p></details>
+      <details><summary>New <span class="nw">Wi-Fi</span> or new router</summary><p>Unplug the stick and plug it back in. If it can’t find its <span class="nw">Wi-Fi</span> for 5 minutes, it opens <span class="nw">PureNet-Setup</span> by itself: then continue above from step 2. If your old <span class="nw">Wi-Fi</span> still works, it’s quicker: open purenet.local and tap “Change <span class="nw">Wi-Fi</span>”. Afterwards the stick often has a new address: enter it on your devices.</p></details>
+      <details><summary>Lost the password?</summary><p>The password belongs to your stick and is on the label inside the lid. You can also find it on purenet.local, as long as the stick is connected to your <span class="nw">Wi-Fi</span>.</p></details>
+    </section>
+    <footer class="ft">
+      <svg class="logo" viewBox="0 0 304 111" aria-hidden="true"><use href="#logo" width="304" height="111"/></svg>
+      <p>Filter lists: <a href="https://github.com/hagezi/dns-blocklists" rel="noopener">HaGeZi DNS Blocklists</a>, license GPL-3.0</p>
+      <p data-contact hidden>Questions? Write to us: <a href="#"></a></p>
+    </footer>
+  </div>
+</article>
+
+</main>
+
+<script>
+(function(){
+  // Kontakt-E-Mail hier eintragen, z. B. 'info@purenet.it'. Leer lassen = kein Kontakt-Link.
+  var KONTAKT = '';
+  var TITEL = {de:'PureNet – Erste Schritte', it:'PureNet – Primi passi', en:'PureNet – Getting started'};
+  var root = document.documentElement;
+  function zeige(l, merken){
+    root.setAttribute('data-lang', l); root.lang = l; document.title = TITEL[l];
+    var as = document.querySelectorAll('.lang a');
+    for (var i = 0; i < as.length; i++) as[i].setAttribute('aria-current', as[i].getAttribute('data-l') === l ? 'true' : 'false');
+    if (merken) { try { localStorage.setItem('pn-lang', l); } catch (e) {} }
+  }
+  zeige(TITEL[root.getAttribute('data-lang')] ? root.getAttribute('data-lang') : 'en', false);
+  document.querySelector('.lang').addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[data-l]') : null;
+    if (!a) return;
+    e.preventDefault();
+    zeige(a.getAttribute('data-l'), true);
+    try { history.replaceState(null, '', '#' + a.getAttribute('data-l')); } catch (e2) {}
+    window.scrollTo(0, 0);
+  });
+  window.addEventListener('hashchange', function(){ var h = location.hash.slice(1); if (TITEL[h]) zeige(h, true); });
+  if (KONTAKT) {
+    var cs = document.querySelectorAll('[data-contact]');
+    for (var j = 0; j < cs.length; j++) { var k = cs[j].querySelector('a'); k.href = 'mailto:' + KONTAKT; k.textContent = KONTAKT; cs[j].hidden = false; }
+  }
+  // Offline-Kopie: Springt das Handy ins WLAN PureNet-Setup (ohne Internet), bleibt die Seite trotzdem lesbar.
+  if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(function(){});
+})();
+</script>
+</body>
+</html>
